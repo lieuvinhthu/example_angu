@@ -1,0 +1,159 @@
+<div class="container py-5" ng-app="myApp.step1" ng-controller="step1Ctrl">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+
+            <form data-ng-repeat="choice in yourpet">
+                <div class="row">
+                    <h2>Tell us about your {{choice.id !== "1"?choice.id:""}} pet</h2>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">*What's your pet's name?</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Enter name"
+                            ng-model="choice.name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">*Is your pet a dog or a cat?</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="col-sm-6">
+                            <input class="form-check-input" type="radio" value="dog" checked ng-model="choice.type">
+                            <label class="form-check-label">
+                                Dog
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-check-input" type="radio" value="cat" checked ng-model="choice.type">
+                            <label class="form-check-label">
+                                Cat
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">*What breed is your pet?</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="inputLastname" placeholder="Enter breed" ng-model="choice.breed">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">*When was your pet born?</label>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <input style="width: 100%" type="date" value="" data-date-format="mm/dd/yy" ng-model="choice.born">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">*What gender is your pet?</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="col-sm-6">
+                            <input class="form-check-input" type="radio"
+                                value="male" checked ng-model="choice.gender">
+                            <label class="form-check-label">
+                                Male
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-check-input" type="radio"
+                                value="female" checked ng-model="choice.gender">
+                            <label class="form-check-label">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">*Is your pet desexed?</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="col-sm-4">
+                            <input class="form-check-input" type="radio"
+                                value="yes" checked ng-model="choice.desexed">
+                            <label class="form-check-label">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input class="form-check-input" type="radio"
+                                value="no" checked ng-model="choice.desexed">
+                            <label class="form-check-label">
+                                No
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input class="form-check-input" type="radio"
+                                value="unknown" checked ng-model="choice.desexed">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Unknown
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            
+            <button style="float: right;" type="button" class="btn btn-outline-danger" ng-click="addNewChoice()">Add
+                another pet</button>
+                <button style="float: right; margin-right: 10px;" type="button" class="btn btn-outline-danger" ng-click="removeChoice()" ng-hide="hideButton">Remove pet</button>
+            <form data-ng-repeat="choice in yourself">
+                <div class="row">
+                    <h2>Tell us about yourself</h2>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">*What is your date of birth?</label>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <input style="width:100%" type="date" value="" data-date-format="mm/dd/yy" ng-model="choice.birth">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">Email</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control" placeholder="Email address" ng-model="choice.email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">*Where does your pet live?</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Enter postcode" ng-model="choice.postcode">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputFirstname">What is your promotion code?</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Enter promotion code" ng-model="choice.promotioncode">
+                    </div>
+                </div>
+                <button style="float: right;" type="button" class="btn btn-primary px-4 float-right">Get your
+                    quote</button>
+            </form>
+
+
+            <div>
+                {{ yourpet }}
+                {{ yourself }}
+            </div>
+
+        </div>
+    </div>
+</div>

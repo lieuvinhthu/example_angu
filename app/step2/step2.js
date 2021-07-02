@@ -1,31 +1,16 @@
 'use strict';
 
-angular.module('myApp.step1', ['ngRoute'])
+angular.module('myApp.step2', ['ngRoute'])
 
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/step1', {
+    $routeProvider.when('/step2', {
       templateUrl: 'step2/step2.html',
-      controller: 'step1Ctrl',
+      controller: 'step2Ctrl',
     });
   }])
 
-  .controller('step1Ctrl', ['$scope', function ($scope, $window) {
-    $scope.tabs = [
-      { title: 'Dynamic Title 1', content: 'Dynamic content 1' },
-      { title: 'Dynamic Title 2', content: 'Dynamic content 2', disabled: true }
-    ];
+  .controller('step2Ctrl', ['$scope', function ($scope, $window) {
 
-    $scope.alertMe = function () {
-      setTimeout(function () {
-        alert('You\'ve selected the alert tab!');
-      });
-    };
-
-    $scope.model = {
-      name: 'Tabs'
-    };
-
-    //
     $scope.yourpet = [{ id: '1', name: '', type: '', breed: '', born: '', gender: '', desexed: 'no' }];
 
     $scope.hideButton = true;
@@ -37,9 +22,9 @@ angular.module('myApp.step1', ['ngRoute'])
         'id': + newItemNo,
         'name': '',
         'type': '',
-        'breed': '', 
-        'born': '', 
-        'gender': '', 
+        'breed': '',
+        'born': '',
+        'gender': '',
         'desexed': 'no'
       });
 
@@ -62,4 +47,5 @@ angular.module('myApp.step1', ['ngRoute'])
     };
 
     $scope.yourself = [{ id: '1', birth: '', email: '', postcode: '', promotioncode: '' }];
+
   }]);
