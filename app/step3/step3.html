@@ -1,0 +1,346 @@
+<div class="container py-5" ng-app="myApp.step3" ng-controller="step3Ctrl">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form data-ng-repeat="choice in policyDetail">
+                <h2>Policy Details</h2>
+                <div class="mb-3">
+                    <label class="form-label">*When would you like your policy to start?
+                    </label>
+                    <select ng-init="weekDays[0]" ng-model="choice.selectedDay" class="form-control"
+                        ng-options="item for item in weekDays">
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <div>
+                        <label class="form-label">*Select the billing cycle you would prefer
+                        </label>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <input class="form-check-input" type="radio" value="yearly" checked ng-model="choice.billing">
+                        <label class="form-check-label">
+                            Yearly
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-check-input" type="radio" value="fortnightly" checked
+                            ng-model="choice.billing">
+                        <label class="form-check-label">
+                            Fortnightly
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-check-input" type="radio" value="monthly" checked ng-model="choice.billing">
+                        <label class="form-check-label">
+                            Monthly
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <form data-ng-repeat="choice in plan">
+                <h2>Choose the plan for your pet</h2>
+
+                <div id="exTab2" class="container col-md-12 mx-auto" ng-app="myApp.step2" ng-controller="step2Ctrl">
+                    <ul class="nav nav-tabs" ng-init="view()">
+                        <li class="active" data-ng-repeat="data in data">
+                            <a href={{data.id}} data-toggle="tab">{{data.name}}</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" data-ng-repeat="data in data">
+                        <div class="tab-pane active" id={{data.id}}>
+                            <table class="table table-bordered" style="text-align: center;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th style="text-align: center;">
+                                            Pet Essentials</th>
+                                        <th style="text-align: center;">
+                                            Pet Premium</th>
+                                        <th style="text-align: center;">
+                                            Pet Premium plus Routine Care
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Annual benefit limit</th>
+                                        <td>$8,000</td>
+                                        <td>$12,000</td>
+                                        <td>$12,145</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Up to 80% cover on eligible vet bills</th>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Excess</th>
+                                        <td>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$0" checked
+                                                    ng-model="choice.selectPetEssentials">
+                                                <label class="form-check-label">
+                                                    $0
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$50" checked
+                                                    ng-model="choice.selectPetEssentials">
+                                                <label class="form-check-label">
+                                                    $50
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$100" checked
+                                                    ng-model="choice.selectPetEssentials">
+                                                <label class="form-check-label">
+                                                    $100
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$200" checked
+                                                    ng-model="choice.selectPetEssentials">
+                                                <label class="form-check-label">
+                                                    $200
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$0" checked
+                                                    ng-model="choice.selectPetPremium">
+                                                <label class="form-check-label">
+                                                    $0
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$50" checked
+                                                    ng-model="choice.selectPetPremium">
+                                                <label class="form-check-label">
+                                                    $50
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$100" checked
+                                                    ng-model="choice.selectPetPremium">
+                                                <label class="form-check-label">
+                                                    $100
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$200" checked
+                                                    ng-model="choice.selectPetPremium">
+                                                <label class="form-check-label">
+                                                    $200
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$0" checked
+                                                    ng-model="choice.selectPetPremiumPlus">
+                                                <label class="form-check-label">
+                                                    $0
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$50" checked
+                                                    ng-model="choice.selectPetPremiumPlus">
+                                                <label class="form-check-label">
+                                                    $50
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$100" checked
+                                                    ng-model="choice.selectPetPremiumPlus">
+                                                <label class="form-check-label">
+                                                    $100
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$200" checked
+                                                    ng-model="choice.selectPetPremiumPlus">
+                                                <label class="form-check-label">
+                                                    $200
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Dental Option
+                                            waiting period of 2 years apply</th>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="yes" checked
+                                                    ng-model="">
+                                                <label class="form-check-label">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="No" checked
+                                                    ng-model="">
+                                                <label class="form-check-label">
+                                                    No
+                                                </label>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$0" checked
+                                                    ng-model="">
+                                                <label class="form-check-label">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="radio" value="$50" checked
+                                                    ng-model="">
+                                                <label class="form-check-label">
+                                                    No
+                                                </label>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Premium</th>
+                                        <td>{{choice.selectPetEssentials}}</td>
+                                        <td>{{choice.selectPetPremium}}</td>
+                                        <td>{{choice.selectPetPremiumPlus}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Select</th>
+                                        <td>
+                                            <div class="col-sm-12">
+                                                <input class="form-check-input" type="radio" value="petEssentials" checked
+                                                    ng-model="choice.select">
+                                                <label class="form-check-label">
+                                                    Select
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-12">
+                                                <input class="form-check-input" type="radio" value="petPremium" checked
+                                                    ng-model="choice.select">
+                                                <label class="form-check-label">
+                                                    Select
+                                                </label>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-12">
+                                                <input class="form-check-input" type="radio" value="petPremiumPlus" checked
+                                                    ng-model="choice.select">
+                                                <label class="form-check-label">
+                                                    Select
+                                                </label>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td colspan="4">Policy features</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Accidental injury cover</th>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Illness cover</th>
+                                        <td>
+                                            <md-icon class="material-icons">close</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Cancer treatment</th>
+                                        <td>
+                                            <md-icon class="material-icons">close</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cruciate ligament conditions</th>
+                                        <td>$2,600</td>
+                                        <td>$2,600</td>
+                                        <td>$2,600</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Routine Care Cover</th>
+                                        <td>
+                                            <md-icon class="material-icons">close</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">close</md-icon>
+                                        </td>
+                                        <td>
+                                            <md-icon class="material-icons">done</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">More Details</th>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Cover details</button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Cover details</button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Cover details</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div>
+                                {{policyDetail}}
+                                {{plan}}
+                            </div>
+                            <button style="float: left;" type="button" class="btn btn-light"
+                                ng-click="back()">Back</button>
+                            <button style="float: right;" type="button" class="btn btn-danger"
+                                ng-click="continue()">Continue</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>

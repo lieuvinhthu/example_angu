@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.step2', ['ngRoute'])
+angular.module('myApp.step2', ['ngRoute', 'ngStorage'])
 
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/step2', {
@@ -9,7 +9,7 @@ angular.module('myApp.step2', ['ngRoute'])
     });
   }])
 
-  .controller('step2Ctrl', ['$scope', function ($scope, $window) {
+  .controller('step2Ctrl', ['$scope', '$localStorage', '$location', function ($scope, $localStorage, $location) {
 
     $scope.yourpet = [{ id: '1', name: '', type: '', breed: '', born: '', gender: '', desexed: 'no' }];
 
@@ -47,5 +47,14 @@ angular.module('myApp.step2', ['ngRoute'])
     };
 
     $scope.yourself = [{ id: '1', birth: '', email: '', postcode: '', promotioncode: '' }];
+
+    $scope.save = function () {
+      $localStorage.yourpet = $scope.yourpet;
+      $location.path('/step3');
+    };
+
+    $scope.view = function () {
+      $scope.data = $localStorage.yourpet;
+    };
 
   }]);
